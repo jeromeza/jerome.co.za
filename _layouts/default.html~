@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="container azul">
+      <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
+        <div class="col span_2 center">
+          <!-- TODO: add baseurl to the logo link -->
+          <a href="{{ site.url }}" id="logo" title="{{ site.data.brume.name }}"
+             style="background-image: url({{site.baseurl}}/public/images/logo.png);"></a>
+        </div>
+        {% include navigation.html %}
+      </header>
+
+      {{ content }}
+
+      <footer>
+<div class="footer">
+<a href="http://www.openbsd.org">
+<img class="powered" src="/images/powered.gif" />
+</a>
+<a href="mailto:raindog308@raindog308.com">
+<img class="footer-icon" src="/images/email_46.png" />
+</a>
+<a href="https://twitter.com/raindog308">
+<img class="footer-icon" src="/images/twitter_46.png" />
+</a>
+<a href="https://www.linkedin.com/profile/view?id=19977297">
+<img class="footer-icon" src="/images/linkedin_46.png" />
+</a>
+<a href="https://diasporado.org/u/raindog308">
+<img class="footer-icon" src="/images/diaspora_46.png" />
+</a>
+<a href="mailto:ephraim_masuya_kowalewskaja@ceurhkrxxyxlxizurw5wjxkdrmlqcryfhi4hrlduyfpxnnzcftqa.freemail">
+<img class="footer-icon" src="/images/freenet_46.png" />
+</a>
+</div>
+      </footer>
+    </div>
+
+    <!-- scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/public/js/jquery.fitvids.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("article").fitVids();
+      });
+    </script>
+  </body>
+</html>
