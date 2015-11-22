@@ -12,19 +12,24 @@ As I manage my own email I decided to log in, and see if I could spot any issues
 Vox's mail servers aren't configured correctly (go figure). They a) haven't setup rDNS and b) resolve to a local DNS entry - so my mailserver has blocked them.
 
 Checking mail logs I found:
+<div class="highlight">
 <pre>
 Nov 20 18:59:22 meyling postfix/smtpd[9332]: NOQUEUE: reject: RCPT from unknown[209.203.37.214]: 450 4.7.1 <titania.localdomain>: Helo command rejected: Host not found; from=<help@voxtelecom.co.za> to=<me@mydomain.co.za> proto=ESMTP helo=<titania.localdomain>
 </pre>
+</div>
 
 I reject mail if I can't verify the helo hostname - as not being verifiable generally means you're a SPAMMER.
+<div class="highlight">
 <pre>
 root@meyling:/# cat /etc/postfix/main.cf | grep reject_unknown
    reject_unknown_sender_domain
    reject_unknown_helo_hostname,
    reject_unknown_reverse_client_hostname,
 </pre>
+</div>
 
 A quick dig on the IP confirms what I suspected. They've got no rDNS record for the IP set and thus any decent mailserver will refuse their mail.
+<div class="highlight">
 <pre>
 root@meyling:# dig -x 209.203.37.214
 
@@ -47,6 +52,7 @@ root@meyling:# dig -x 209.203.37.214
 ;; WHEN: Fri Nov 20 19:31:13 SAST 2015
 ;; MSG SIZE  rcvd: 120
 </pre>
+</div>
 
 So they need to setup rDNS and configure the server to use titania.localdomain as the server name if applicable.
 
