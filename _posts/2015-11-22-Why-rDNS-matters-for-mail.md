@@ -5,11 +5,11 @@ title: Why rDNS matters for mail!
 
 My old ISP had gone to hell. They had started shaping and throttling traffic aggressively and I simply wasn't getting what I paid for...
 
-The result bein that I moved to a new ISP (Vox Telecom). I signed up and eagerly awaited my details via email, yet they never arrived. 
+The result being that I moved to a new ISP (Vox Telecom). I signed up and eagerly awaited my details via email, yet they never arrived. 
 
-As I manage my own email server I decided to log in, and see if I could spot any issues, I soon did.
+As I manage my own email server I decided to log in, and see if I could spot any issues, which I soon did.
 
-Vox's mail servers aren't configured correctly (go figure). They a) haven't setup rDNS and b) resolve to a local DNS entry - so my mailserver has blocked them.
+Vox's mail servers aren't configured correctly (go figure). They a) haven't setup rDNS and b) resolve to a local DNS entry - so my mailserver had blocked them.
 
 Checking mail logs I found:
 <div class="highlight">
@@ -18,7 +18,7 @@ Nov 20 18:59:22 meyling postfix/smtpd[9332]: NOQUEUE: reject: RCPT from unknown[
 </pre>
 </div>
 
-I reject mail if I can't verify the helo hostname - as not being verifiable generally means you're a SPAMMER.
+I reject mail if I can't verify the helo hostname - as it not being verifiable generally means you're a SPAMMER.
 <div class="highlight">
 <pre>
 root@meyling:/# cat /etc/postfix/main.cf | grep reject_unknown
