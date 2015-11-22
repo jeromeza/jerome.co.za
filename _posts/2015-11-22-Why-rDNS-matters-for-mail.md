@@ -5,9 +5,9 @@ title: Why rDNS matters for mail!
 
 My old ISP had gone to hell. They had started shaping and throttling traffic aggressively and I simply wasn't getting what I paid for...
 
-The result was that I moved to a new ISP (Vox Telecom). I signed up and eagerly awaited my details via email, yet they never arrived. 
+The result bein that I moved to a new ISP (Vox Telecom). I signed up and eagerly awaited my details via email, yet they never arrived. 
 
-As I manage my own email I decided to log in, and see if I could spot any issues, I soon did.
+As I manage my own email server I decided to log in, and see if I could spot any issues, I soon did.
 
 Vox's mail servers aren't configured correctly (go figure). They a) haven't setup rDNS and b) resolve to a local DNS entry - so my mailserver has blocked them.
 
@@ -56,7 +56,7 @@ root@meyling:# dig -x 209.203.37.214
 
 So they need to setup rDNS and configure the server to use titania.localdomain as the server name if applicable.
 
-Additionally they're not conforming to RFC 2821 (https://www.ietf.org/rfc/rfc2821.txt) for mail and for a huge ISP that offers connectivity / hosting / mail i'd expect more:
+Additionally they're not conforming to RFC 2821 (https://www.ietf.org/rfc/rfc2821.txt) for mail and for a huge ISP that offers connectivity / hosting / mail - I'd expect more:
 
 "The domain name given in the EHLO command MUST BE either a primary host name (a domain name that resolves to an A RR) or, if the host has no name, an address literal as described in section 4.1.1.1"
 
