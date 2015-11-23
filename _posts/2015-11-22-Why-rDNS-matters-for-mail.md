@@ -21,10 +21,10 @@ Nov 20 18:59:22 meyling postfix/smtpd[9332]: NOQUEUE: reject: RCPT from unknown[
 I reject mail if I can't verify the helo hostname - as it not being verifiable generally means you're a SPAMMER.
 <div class="highlight">
 <pre>
-root@meyling:/# cat /etc/postfix/main.cf | grep reject_unknown
-   reject_unknown_sender_domain
-   reject_unknown_helo_hostname,
-   reject_unknown_reverse_client_hostname,
+root@meyling:/# cat /etc/postfix/main.cf | grep reject\_unknown
+   reject\_unknown\_sender\_domain
+   reject\_unknown\_helo\_hostname,
+   reject\_unknown\_reverse\_client\_hostname,
 </pre>
 </div>
 
@@ -58,6 +58,6 @@ So they need to setup rDNS and configure the server to use titania.localdomain a
 
 Additionally they're not conforming to RFC 2821 (https://www.ietf.org/rfc/rfc2821.txt) for mail and for a huge ISP that offers connectivity / hosting / mail - I'd expect more:
 
-"The domain name given in the EHLO command MUST BE either a primary host name (a domain name that resolves to an A RR) or, if the host has no name, an address literal as described in section 4.1.1.1"
+**"The domain name given in the EHLO command MUST BE either a primary host name (a domain name that resolves to an A RR) or, if the host has no name, an address literal as described in section 4.1.1.1"**
 
 I've let their support know, but I doubt they'll bother to fix. For now I'll whitelist them in my Postfix config. If you're interested in how, then check the next post.
