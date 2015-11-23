@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Whitelist legitimate, albeit badly configured mailservers with no rDNS - Postfix
+title: Whitelist mailservers with no rDNS - Postfix
 ---
 
 For more info you can see the previous post, but the gist of it I was SUPPOSED to be receiving an email, which I wasn't.
