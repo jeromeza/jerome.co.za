@@ -1,6 +1,6 @@
 markdown: redcarpet
 highlighter: null
-permalink: /:title
+permalink: /:title/
 
 url: http://jerome.co.za
 baseurl:
